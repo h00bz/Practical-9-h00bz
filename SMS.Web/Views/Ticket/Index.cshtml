@@ -7,6 +7,9 @@
    <div class="d-flex align-items-center justify-content-between mb-4">
       <h3>Open Ticket List</h3>
 
+         <a class="btn btn-sm btn-primary" asp-action="Create" title="open ticket" aria-label="open ticket">
+           <i class="bi bi-plus"></i> Open</a>
+
       <!-- TBC - Q6 add button to create a ticket. -->
       <!-- Consider adding an icon such as 'bi bi-plus -->
    </div>
@@ -31,7 +34,11 @@
                <td>@t.CreatedOn</td>              
                <td>
                   <!-- TBC Q6 - use form to submit ticket Id to close action -->
-                  <!-- consider using bootstrap icon 'bi bi-tools' -->                  
+                  <!-- consider using bootstrap icon 'bi bi-tools' -->  
+       <form asp-action="CloseTicket">
+        <input type="hidden" name="id" value=@t.Id/>
+        <button type= "submit" class="btn btn-link text-dark">Close</button>  
+        </form>           
                </td>
             </tr>
          }

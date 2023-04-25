@@ -57,12 +57,12 @@ public class StudentServiceDb : IStudentService
             Course = s.Course,
             Email = s.Email,
             Age = s.Age,
-            Grade = s.Grade,
+            Grade = s.Grade,        
             PhotoUrl = s.PhotoUrl
         };
         db.Students.Add(student); // add student to the list
         db.SaveChanges();
-        return student; // return newly added student
+        return (student); // return newly added student
     }
 
     // Delete the student identified by Id returning true if 
@@ -123,8 +123,10 @@ public class StudentServiceDb : IStudentService
     public Ticket CreateTicket(int studentId, string issue)
     {
         var student = GetStudent(studentId);
-        if (student == null) return null;
-
+        if (student == null) 
+        {
+            return null;
+        }
         var ticket = new Ticket
         {
             // Id created by Database
@@ -163,7 +165,8 @@ public class StudentServiceDb : IStudentService
     {
         var ticket = GetTicket(id);
         // if ticket does not exist or is already closed return null
-        if (ticket == null || !ticket.Active) return null;
+        if (ticket == null || !ticket.Active) 
+        return null;
         
         // ticket exists and is active so close
         ticket.Active = false;

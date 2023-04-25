@@ -23,7 +23,7 @@ public interface IStudentService
     Ticket UpdateTicket(int id, string issue);
     Ticket GetTicket(int id);
     Ticket CloseTicket(int id);
-    bool   DeleteTicket(int id);
+    bool DeleteTicket(int id);
     IList<Ticket> GetOpenTickets();  
 
 }
